@@ -18,12 +18,12 @@ public class HTTPElasticClient{
     }
 
     public HTTPElasticClient(Uri[] uris){
-        var connectionPool = new SniffingConnectionPool(uris);
+        var connectionPool = new StaticConnectionPool(uris);
         var settings = new ConnectionSettings(connectionPool);
         client = new ElasticClient(settings);
     }
     public HTTPElasticClient(Uri[] uris, string defaultIndex){
-        var connectionPool = new SniffingConnectionPool(uris);
+        var connectionPool = new StaticConnectionPool(uris);
         var settings = new ConnectionSettings(connectionPool).DefaultIndex(defaultIndex);
         client = new ElasticClient(settings);
     }
@@ -51,4 +51,10 @@ public class HTTPElasticClient{
 
     public IReadOnlyCollection<IHit<T>> GetDocumentByField<T>(string key, string value, string index) where T: class =>
         client.Search<T>(s => s.Index(index).Query(q => q.Match(m => m.Field(key).Query(value)))).Hits;
+
+    public IReadOnlyCollection<IHit<T>> GetAllDocument<T>() where T: class =>
+        client.Search<T>().Hits;
+
+    public IReadOnlyCollection<IHit<T>> GetAllDocument<T>(string index) where T: class =>
+        client.Search<T>(s => s.Index(index)).Hits;
 }
