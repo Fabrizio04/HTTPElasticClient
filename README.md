@@ -79,3 +79,7 @@ catch(Exception e){
 - GetDocumentByField<T>(string key, string value): IReadOnlyCollection<IHit<T>>
 
 - GetDocumentByField<T>(string key, string value, string index): IReadOnlyCollection<IHit<T>>
+
+- GetAllDocument<T>(): IReadOnlyCollection<IHit<T>>
+
+- GetAllDocument<T>(string index): IReadOnlyCollection<IHit<T>>
