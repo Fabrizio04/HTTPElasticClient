@@ -26,7 +26,7 @@ Di seguito andiamo ad inserire per poi leggere un nuovo documento
 
 ```csharp
 var elastic = new HTTPElasticClient(
-    "https://elastic:Fabrizio123@192.168.1.64:9200",
+    "https://username:password@192.168.1.64:9200",
     "persone"
 );
 
