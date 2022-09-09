@@ -58,28 +58,58 @@ catch(Exception e){
 
 - HTTPElasticClient(string uri): costruttore
 
+- HTTPElasticClient(string uri, int timeout): costruttore
+
 - HTTPElasticClient(string uri, string defaultIndex): costruttore
+
+- HTTPElasticClient(string uri, string defaultIndex, int timeout): costruttore
 
 - HTTPElasticClient(Uri[] uris): costruttore
 
+- HTTPElasticClient(Uri[] uris, int timeout): costruttore
+
 - HTTPElasticClient(Uri[] uris, string defaultIndex): costruttore
+
+- HTTPElasticClient(Uri[] uris, string defaultIndex, int timeout): costruttore
+
+- ClusterHealt_Response(): ClusterHealthResponse
 
 - CreateDocument<T>(T document, string _id): void
 
+- CreateDocument_Response<T>(T document, string _id): IndexResponse
+
 - CreateDocument<T>(T document, string _id, string index): void
+
+- CreateDocument_Response<T>(T document, string _id, string index): IndexResponse
 
 - DeleteDocument<T>(string _id): void
 
+- DeleteDocument_Response<T>(string _id): DeleteResponse
+
 - DeleteDocument<T>(string _id, string index): void
+
+- DeleteDocument_Response<T>(string _id, string index): DeleteResponse
 
 - GetDocumentById<T>(string _id): IReadOnlyCollection<IHit<T>>
 
+- GetDocumentById_Response<T>(string _id): ISearchResponse<T>
+
 - GetDocumentById<T>(string _id, string index): IReadOnlyCollection<IHit<T>>
+
+- GetDocumentById_Response<T>(string _id, string index): ISearchResponse<T>
 
 - GetDocumentByField<T>(string key, string value): IReadOnlyCollection<IHit<T>>
 
+- GetDocumentByField_Response<T>(string key, string value): ISearchResponse<T>
+
 - GetDocumentByField<T>(string key, string value, string index): IReadOnlyCollection<IHit<T>>
+
+- GetDocumentByField_Response<T>(string key, string value, string index): ISearchResponse<T>
 
 - GetAllDocument<T>(): IReadOnlyCollection<IHit<T>>
 
+- GetAllDocument_Response<T>(): ISearchResponse<T>
+
 - GetAllDocument<T>(string index): IReadOnlyCollection<IHit<T>>
+
+- GetAllDocument_Response<T>(string index): ISearchResponse<T>
